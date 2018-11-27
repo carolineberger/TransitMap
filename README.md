@@ -22,5 +22,4 @@ should have a different color:
 
 To get the list of supported feeds, you can use this JSON API (note that this API updates daily):
 https://api.transitapp.com/v3/feeds?detailed=1
-The code should be published on GitHub or Bitbucket so we can easily look at it. Please use
-Objective-C on iOS and either Java or Kotlin on Android.
+
