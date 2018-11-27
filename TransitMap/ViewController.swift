@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getFeeds()
+        
         // 1
         let location = CLLocationCoordinate2D(latitude: 51.50007773,
                                               longitude: -0.1246402)
@@ -24,13 +27,15 @@ class ViewController: UIViewController {
         mapView.setRegion(region, animated: true)
         
         //3
-        let annotation = MKPointAnnotation()
+        let annotation = MKPointAnnotation() //these will be the pins
         annotation.coordinate = location
         annotation.title = "Big Ben"
         annotation.subtitle = "London"
         mapView.addAnnotation(annotation)
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
