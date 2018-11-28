@@ -8,21 +8,53 @@
 
 import Foundation
 
-struct Feed: Codable {
-    let country_code: String
-    let pinColor: String?
-    let name: String
-    let location: String
-    let bounds: [Bounds]
+class Feed {
+    //let name: String?
+    var countryCode: String
+    var city: String?
+    var pinColor: String
+    var bounds: Bounds
     
-    struct Bounds: Codable {
-        let min_lat: Double
-        let max_lat: Double
-        let min_lon: Double
-        let max_lon: Double
+    init(countryCode: String, city: String?, bounds:Dictionary<String, Double>){
+        
+        self.countryCode = countryCode
+        self.city = city
+        
+        self.bounds = Bounds(min_lat: bounds["min_lat"]!,max_lat: bounds["max_lat"]!, min_lon: bounds["max_lat"]!, max_lon: bounds ["max_lon"]! )
+        
+        switch countryCode{
+        case "CA":
+            self.pinColor = "f44336"
+        case "US":
+            self.pinColor = "e040fb"
+        case "FR":
+            self.pinColor = "3f51b5"
+        case "GB":
+            self.pinColor = "8bc34a"
+        case "DE":
+            self.pinColor = "ffc107"
+        default:
+            self.pinColor = "00bcd4"
+            
+        }
     }
+    
+    
+    class Bounds {
+        var min_lat: Double
+        var max_lat: Double
+        var min_lon: Double
+        var max_lon: Double
+        init(min_lat:Double, max_lat:Double, min_lon:Double,
+             max_lon:Double){
+            self.min_lat = min_lat;
+            self.max_lat = max_lat;
+            self.min_lon = min_lon;
+            self.max_lon = max_lon;
+            
+        }
+    }
+ 
 }
 
-struct FeedList: Codable{
-    let feeds :[Feed]
-}
+
