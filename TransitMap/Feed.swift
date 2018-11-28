@@ -1,6 +1,10 @@
 //
 //  Feed.swift
 //  TransitMap
+//  The feed class has the country code, the city,
+//  the pin color and bounds
+
+// TODO: add feed name
 //
 //  Created by Caroline Berger on 26/11/2018.
 //  Copyright © 2018 Caroline Berger. All rights reserved.
@@ -9,7 +13,7 @@
 import Foundation
 
 class Feed {
-    //let name: String?
+    // var name: String?
     var countryCode: String
     var city: String?
     var pinColor: String
@@ -22,6 +26,9 @@ class Feed {
         
         self.bounds = Bounds(min_lat: bounds["min_lat"]!,max_lat: bounds["max_lat"]!, min_lon: bounds["max_lat"]!, max_lon: bounds ["max_lon"]! )
         
+        /*  depending on what country code the feed is, there is a different
+            pin color
+        */
         switch countryCode{
         case "CA":
             self.pinColor = "f44336"
